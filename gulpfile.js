@@ -1,5 +1,6 @@
 var gulp =  require('gulp'),
     gutil = require('gulp-util'),
+    concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
     rename = require('gulp-rename'),
     less  = require('gulp-less'),
@@ -16,12 +17,17 @@ gulp.task('less', function(){
   .pipe(gulp.dest('builds/app/css'))
 });
 
+
+
 gulp.task('scripts', function() {
   //console.log('works');
-  gulp.src('builds/app/jquery/*.js')
+  gulp.src('./bower_components/bootstrap/js/**/*.js')
+  .pipe(concat('all.js'))
+  .pipe(gulp.dest('builds/app/dist'))
+  gulp.src('builds/app/dist/*.js')
   .pipe(rename({suffix:'.min'}))
   .pipe(uglify())
-  .pipe(gulp.dest('builds/app/js'));
+  .pipe(gulp.dest('builds/app/dist/js'));
 });
 
 
