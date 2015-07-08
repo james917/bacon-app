@@ -1,0 +1,8 @@
+{
+  "name": "bacon-app",
+  "devDependencies": {
+    "bootstrap": "~3.3.5",
+    "jquery": "~2.1.4",
+    "backbone": "~1.2.1"
+  }
+}
